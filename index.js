@@ -22,6 +22,10 @@ app.use(express.json());
 // Ruta
 app.use('/api/auth', require('./routes/auth'));
 
+app.get('*', (req, res) => {
+	res.sendFile(__dirname + '/public/index.html');
+});
+
 app.listen(process.env.PORT || 8080, () => {
 	console.log('Servidor corriendo en puerto ' + process.env.PORT);
 });
